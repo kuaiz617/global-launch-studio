@@ -1,0 +1,1 @@
+export async function readJson(req){ const chunks=[]; for await(const chunk of req) chunks.push(chunk); if(!chunks.length) return {}; try{return JSON.parse(Buffer.concat(chunks).toString('utf8'));}catch{throw new Error('Request body must be valid JSON.');} }

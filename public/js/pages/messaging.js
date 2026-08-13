@@ -1,0 +1,1 @@
+export function messagingPage(data){return `<div class="grid">${data.messaging.map(m=>`<div class="card"><div class="row"><span class="pill">${m.category}</span><h3>${m.title}</h3></div><p>${m.en}</p><p>${m.zh}</p><div class="evidence"><b>Evidence note:</b> ${m.evidence}</div><div class="muted">Prohibited claims: ${m.prohibited.join(' · ')}</div></div>`).join('')}</div>`;}

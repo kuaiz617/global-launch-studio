@@ -1,6 +1,6 @@
 {
   "name": "global-launch-studio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "description": "AI-powered seller education and GTM orchestration platform for cross-border commerce.",
@@ -8,7 +8,8 @@
     "demo": "node server.mjs",
     "start": "node server.mjs",
     "test": "node --test",
-    "check": "node --check server.mjs && node --check src/data.mjs && node --check src/engine.mjs && node --check public/app.js"
+    "eval": "node scripts/run-evaluation.mjs",
+    "check": "node scripts/check-syntax.mjs"
   },
   "engines": {
     "node": ">=20"

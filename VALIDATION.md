@@ -1,22 +1,10 @@
-# Validation Record
+# Validation
 
-This file describes what was actually tested in the delivered package.
+Validated locally with Node.js 22.16.0 (project requires Node.js 20+).
 
-## Verified
+- `npm test`: 16/16 tests passed.
+- `npm run check`: 34 JavaScript modules passed syntax checks.
+- `npm run eval`: 24/24 labeled seller questions routed to the expected agent and stage; grounding, prohibited-claim safety, CTA completeness, and structural quality checks all passed on this included test set.
+- HTTP smoke test: `/api/health`, `/api/bootstrap`, `/api/simulate`, and `/api/evaluation` returned successful responses.
 
-- The application contains real source code, not only documentation.
-- `npm run check` passes using Node's syntax checker.
-- `npm test` passes all automated tests.
-- `npm run demo` starts the application without installing dependencies.
-- `/api/health` returns HTTP 200.
-- `/api/bootstrap` returns journey, agent, message, and seller data.
-- `/api/simulate` routes bilingual questions and generates structured responses.
-- `/api/content` generates English and Mandarin seller assets.
-- The browser UI loads its HTML, CSS, JavaScript, and API data successfully.
-
-## Not claimed
-
-- This is not a production Amazon system.
-- It does not use Amazon internal data or approved Amazon product claims.
-- It does not include a real LLM API call in the default local mode.
-- Test accuracy refers only to the curated test set included in this repository.
+These metrics describe only the repository's simulation/evaluation set and are not seller conversion or business-performance claims.

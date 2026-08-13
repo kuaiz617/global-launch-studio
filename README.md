@@ -1,52 +1,58 @@
-# GlobalLaunch Studio
+# GlobalLaunch Studio v2
 
 **AI-powered seller education and go-to-market orchestration for cross-border commerce.**
 
-GlobalLaunch Studio is a portfolio MVP designed around an AI Product Marketing role. It demonstrates how product messaging, seller education, agent skills, and journey orchestration can be managed as one system.
+GlobalLaunch Studio is a functional portfolio MVP designed around AI Product Marketing work: authoring agent skills, mapping seller education journeys, governing product messaging, retrieving product knowledge, generating bilingual content, and evaluating agent behavior.
 
-## What is included
+## Why v2 is different
 
-- Command Center with seller readiness and journey coverage
-- Five-stage Journey Architect: Awareness → Consideration → Readiness → Onboarding → Activation
-- Six structured Agent Skills with objectives, inputs, required messaging, and guardrails
-- Bilingual Messaging Library with evidence notes and prohibited claims
-- Seller Journey Simulator with deterministic bilingual routing
-- Content Studio for English and Mandarin emails, FAQs, and checklists
-- Quality Insights with transparent evaluation criteria
-- Node tests for routing, generation, guardrails, and bilingual output
+The first MVP concentrated most logic in a few files. v2 is intentionally modular: six agent skill packages, a knowledge base, retrieval engine, router, grounded response generator, quality evaluator, labeled evaluation set, modular HTTP APIs, modular browser UI, automated tests, CI, and Docker support.
 
-## Run locally
+## Run
 
-No third-party packages are required. You only need Node.js 20 or newer.
+Requires Node.js 20+. No `npm install` is needed.
 
 ```bash
 npm run demo
 ```
+Open `http://127.0.0.1:4173`.
 
-Open:
-
-```text
-http://127.0.0.1:4173
-```
-
-## Test
+## Validate
 
 ```bash
 npm test
 npm run check
+npm run eval
 ```
 
-## Project structure
+## Main product modules
 
-```text
-public/             Browser interface
-src/data.mjs        Seller stages, skills, messages, personas, test cases
-src/engine.mjs      Routing, response generation, quality checks
-server.mjs          Zero-dependency Node HTTP server and APIs
-tests/              Automated tests
-docs/               Case study and job-alignment writing
+- Command Center
+- Journey Architect
+- Agent Skill Studio
+- Messaging Library
+- Seller Simulator
+- Content Studio
+- Evaluation Center
+
+## AI architecture
+
+`seller question → skill router → knowledge retrieval → structured agent response → quality evaluation → audit event`
+
+The project is dual-mode. By default it runs a deterministic local generator plus lexical retrieval, so the demo is reproducible and requires no API key. When `LLM_MODE=openai` and `OPENAI_API_KEY` are configured, the server calls the OpenAI Responses API for real model generation. When `RAG_MODE=openai`, the retrieval layer uses embeddings for semantic ranking and automatically falls back to lexical retrieval if the external provider is unavailable. Retrieved evidence is passed into the generation step and returned with the answer for inspection.
+
+## Optional real AI mode
+
+```bash
+# macOS / Linux
+export OPENAI_API_KEY=...
+export LLM_MODE=openai
+export RAG_MODE=openai
+npm run demo
 ```
 
-## Important scope statement
+On Windows PowerShell, set the same environment variables with `$env:NAME="value"`. API keys stay on the server side and are never sent to browser JavaScript.
 
-This is a functional portfolio MVP using curated demo data. It does not use Amazon internal information, does not claim to represent an actual Amazon product, and does not fabricate conversion or revenue outcomes. The local generation engine demonstrates structured AI-product-marketing logic without requiring an external API key.
+## Scope
+
+This project uses fictional sellers and curated portfolio knowledge. It does not use Amazon internal data, does not claim to represent a real Amazon product, and does not fabricate business KPI improvements. Evaluation metrics refer only to the included labeled simulation set.

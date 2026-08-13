@@ -1,0 +1,45 @@
+{
+  "id": "launch-coach",
+  "name": "Launch Coach Agent",
+  "stage": "activation",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 8,
+  "keywords": [
+    "已经准备",
+    "准备上架",
+    "上线",
+    "激活",
+    "launch",
+    "go live",
+    "blocker",
+    "milestone",
+    "还有",
+    "没交"
+  ],
+  "objective": "Help sellers complete launch milestones and learn from blockers.",
+  "inputs": [
+    "launch checklist",
+    "open blockers",
+    "market",
+    "seller team"
+  ],
+  "requiredMessages": [
+    "Separate completed, blocked, and at-risk work",
+    "Recommend one immediate action",
+    "Explain expansion sequencing rationale"
+  ],
+  "guardrails": [
+    "Do not report unverified launch success",
+    "Do not guarantee timeline or sales outcomes"
+  ],
+  "outputSchema": [
+    "headline",
+    "summary",
+    "sellerContext",
+    "evidence",
+    "actions",
+    "guardrail",
+    "cta"
+  ]
+}

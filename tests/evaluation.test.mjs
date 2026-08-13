@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import { runEvaluation } from '../src/core/evaluation-runner.mjs';
+test('evaluation suite meets quality bar',async()=>{const result=await runEvaluation();assert.equal(result.metrics.cases,24);assert.ok(result.metrics.routingAccuracy>=90);assert.equal(result.metrics.claimSafetyRate,100);assert.equal(result.metrics.groundingRate,100);});
