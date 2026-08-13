@@ -1,16 +1,8 @@
-# Job Description Alignment
+# Role Alignment
 
-## Skill Engineering
-The Agent Skill Studio defines six reusable skills with objectives, seller inputs, outputs, required narratives, guardrails, lifecycle stages, and versions.
-
-## Pre-launch Educational Path Design
-The Journey Architect maps awareness, consideration, readiness, onboarding, and activation. Each stage includes an entry signal, educational objective, primary agent, and success signal.
-
-## Content and Messaging Development
-The Messaging Library includes English and Mandarin value propositions, evidence notes, approved status, and prohibited claims. The Content Studio turns governed messages into seller emails, FAQs, and launch checklists.
-
-## Cross-functional Collaboration
-The onboarding and launch skills explicitly surface ownership, dependencies, blockers, and escalation points across product, sales, marketing, operations, and specialist teams.
-
-## AI-Powered Marketing Innovation
-The Seller Simulator demonstrates bilingual intent routing, structured generation, guardrail enforcement, seller-context personalization, and output evaluation. The architecture is ready for a future LLM or RAG integration while remaining fully runnable without an API key.
+- **Skill Engineering** → six versioned skill packages with prompts, examples, output schema, required messages, and guardrails.
+- **Pre-launch Educational Path Design** → five-stage Journey Architect and explicit agent ownership.
+- **Content & Messaging Development** → bilingual Messaging Library and Content Studio.
+- **AI-Powered Marketing Innovation** → agent routing, product knowledge retrieval, structured generation, and automated evaluation.
+- **Cross-functional Collaboration** → outputs make owners, dependencies, escalation boundaries, and seller next steps visible.
+- **Cross-border e-commerce** → seller personas, market expansion, inventory, listing, compliance education, onboarding, and launch scenarios.

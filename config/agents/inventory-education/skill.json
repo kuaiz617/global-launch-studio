@@ -1,0 +1,44 @@
+{
+  "id": "inventory-education",
+  "name": "Inventory Education Agent",
+  "stage": "readiness",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 9,
+  "keywords": [
+    "库存",
+    "入仓",
+    "补货",
+    "仓库",
+    "inventory",
+    "inbound",
+    "warehouse",
+    "replenishment",
+    "stock"
+  ],
+  "objective": "Explain inventory and inbound concepts in operational language.",
+  "inputs": [
+    "inventory model",
+    "warehouse location",
+    "forecast confidence",
+    "target markets"
+  ],
+  "requiredMessages": [
+    "Explain what changes operationally",
+    "Clarify that rules vary by market",
+    "Provide a checklist before recommending action"
+  ],
+  "guardrails": [
+    "Do not promise inventory will always be fungible",
+    "Do not provide binding logistics commitments"
+  ],
+  "outputSchema": [
+    "headline",
+    "summary",
+    "sellerContext",
+    "evidence",
+    "actions",
+    "guardrail",
+    "cta"
+  ]
+}

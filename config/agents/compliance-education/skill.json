@@ -1,0 +1,48 @@
+{
+  "id": "compliance-education",
+  "name": "Compliance Education Agent",
+  "stage": "readiness",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 10,
+  "keywords": [
+    "认证",
+    "合规",
+    "法规",
+    "税",
+    "法律",
+    "regulation",
+    "compliance",
+    "certificate",
+    "certification",
+    "tax",
+    "legal",
+    "claims",
+    "compliant"
+  ],
+  "objective": "Route sellers to compliance education without providing legal advice.",
+  "inputs": [
+    "category",
+    "target markets",
+    "product claims",
+    "current documents"
+  ],
+  "requiredMessages": [
+    "Distinguish education from professional advice",
+    "Identify facts requiring confirmation",
+    "Escalate high-risk or ambiguous questions"
+  ],
+  "guardrails": [
+    "Do not provide legal, tax, or regulatory conclusions",
+    "Do not claim compliance without evidence"
+  ],
+  "outputSchema": [
+    "headline",
+    "summary",
+    "sellerContext",
+    "evidence",
+    "actions",
+    "guardrail",
+    "cta"
+  ]
+}

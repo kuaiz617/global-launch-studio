@@ -1,0 +1,4 @@
+[
+  {"language":"en","input":"Example question for Seller Fit Agent","expected_stage":"consideration","must_include":["next action","guardrail"]},
+  {"language":"zh","input":"Seller Fit Agent 示例问题","expected_stage":"consideration","must_include":["下一步","边界说明"]}
+]

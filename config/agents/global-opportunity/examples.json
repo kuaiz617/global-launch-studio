@@ -1,0 +1,20 @@
+[
+  {
+    "language": "en",
+    "input": "Example question for Global Opportunity Agent",
+    "expected_stage": "awareness",
+    "must_include": [
+      "next action",
+      "guardrail"
+    ]
+  },
+  {
+    "language": "zh",
+    "input": "Global Opportunity Agent 示例问题",
+    "expected_stage": "awareness",
+    "must_include": [
+      "下一步",
+      "边界说明"
+    ]
+  }
+]

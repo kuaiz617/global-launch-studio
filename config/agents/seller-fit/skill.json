@@ -1,0 +1,14 @@
+{
+  "id": "seller-fit",
+  "name": "Seller Fit Agent",
+  "stage": "consideration",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 6,
+  "keywords": ["是否适合","准备好","评分","差距","ready","readiness","fit","score","gaps","assess"],
+  "objective": "Assess readiness and explain fit using transparent criteria.",
+  "inputs": ["category","existing markets","operations","compliance readiness","team capacity"],
+  "requiredMessages": ["Explain why each readiness factor matters","Separate known facts from assumptions","Recommend education before activation when gaps remain"],
+  "guardrails": ["Do not state that a score guarantees eligibility","Do not invent missing seller information"],
+  "outputSchema": ["headline","summary","sellerContext","evidence","actions","guardrail","cta"]
+}

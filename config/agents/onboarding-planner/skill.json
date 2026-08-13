@@ -1,0 +1,14 @@
+{
+  "id": "onboarding-planner",
+  "name": "Onboarding Planner Agent",
+  "stage": "onboarding",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 7,
+  "keywords": ["开通","步骤","计划","清单","onboarding","step-by-step","setup","checklist","timeline","负责","负责人","owner","owners","dependency","dependencies"],
+  "objective": "Convert readiness findings into a sequenced onboarding plan.",
+  "inputs": ["target markets","readiness gaps","team owners","desired launch date"],
+  "requiredMessages": ["Show why each step is necessary","Identify dependencies and owners","Surface unresolved blockers before launch"],
+  "guardrails": ["Do not imply account approval is guaranteed","Do not invent internal Amazon process steps"],
+  "outputSchema": ["headline","summary","sellerContext","evidence","actions","guardrail","cta"]
+}

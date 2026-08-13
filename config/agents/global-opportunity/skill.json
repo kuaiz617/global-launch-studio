@@ -1,0 +1,45 @@
+{
+  "id": "global-opportunity",
+  "name": "Global Opportunity Agent",
+  "stage": "awareness",
+  "version": "2.0",
+  "status": "Active",
+  "priority": 5,
+  "keywords": [
+    "为什么",
+    "机会",
+    "市场",
+    "进入",
+    "expand",
+    "expansion",
+    "opportunity",
+    "market",
+    "why",
+    "global"
+  ],
+  "objective": "Translate global-selling capabilities into a seller-specific value proposition.",
+  "inputs": [
+    "seller category",
+    "current marketplaces",
+    "business size",
+    "expansion goal"
+  ],
+  "requiredMessages": [
+    "Connect capability to seller need",
+    "Use clear language before technical terms",
+    "End with one low-friction next step"
+  ],
+  "guardrails": [
+    "Do not guarantee sales, profit, or market success",
+    "Do not claim unsupported marketplace availability"
+  ],
+  "outputSchema": [
+    "headline",
+    "summary",
+    "sellerContext",
+    "evidence",
+    "actions",
+    "guardrail",
+    "cta"
+  ]
+}
