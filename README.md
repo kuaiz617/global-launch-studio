@@ -2,41 +2,15 @@
 
 **AI-powered seller education and go-to-market orchestration for cross-border commerce.**
 
-GlobalLaunch Studio is a functional portfolio MVP designed around AI Product Marketing work: authoring agent skills, mapping seller education journeys, governing product messaging, retrieving product knowledge, generating bilingual content, and evaluating agent behavior.
+GlobalLaunch Studio is a portfolio application for AI Product Marketing workflows: agent skills, seller education journeys, messaging governance, product-knowledge retrieval, bilingual content, and agent evaluation.
 
 ## Architecture
 
-The application core is written in **TypeScript**. Six structured agent skill packages feed a typed router, RAG retrieval layer, seller-response generator, quality evaluator, evaluation runner, HTTP API, and server runtime. The browser UI is currently modular JavaScript and is intentionally kept separate from this first TypeScript migration.
+The backend and AI application core are written in **TypeScript**. The browser experience is now a **React + TSX** application under `web/`, built with Vite.
 
-`seller question → typed skill router → knowledge retrieval → structured agent response → quality evaluation → audit event`
+The core flow is: seller question → typed skill router → knowledge retrieval → structured agent response → quality evaluation → audit event.
 
-## Run locally
-
-Requires Node.js 20+.
-
-```bash
-npm install
-npm run dev
-```
-
-Open `http://127.0.0.1:4173`.
-
-## Validate
-
-```bash
-npm run typecheck
-npm test
-npm run build
-npm run eval
-```
-
-Production output is compiled to `dist/` and can be started with:
-
-```bash
-npm start
-```
-
-## Main product modules
+### Product modules
 
 - Command Center
 - Journey Architect
@@ -46,21 +20,26 @@ npm start
 - Content Studio
 - Evaluation Center
 
-## AI architecture
+### Engineering layers
 
-By default, the project uses deterministic local generation plus lexical retrieval so the demo remains reproducible without an API key. When `LLM_MODE=openai` and `OPENAI_API_KEY` are configured, the server can use an OpenAI Responses API provider. When `RAG_MODE=openai`, the retrieval layer can use embeddings for semantic ranking and falls back to lexical retrieval if the external provider is unavailable. API keys remain server-side.
+- TypeScript API/runtime
+- six structured Agent Skill packages
+- lexical RAG with optional embedding retrieval
+- optional model provider with deterministic fallback
+- React + TSX component UI
+- typed client API and hooks
+- automated backend tests and a labeled evaluation set
+- separate backend and frontend type checking/builds in GitHub Actions
 
-## Optional real AI mode
+## Local setup
 
-```bash
-# macOS / Linux
-export OPENAI_API_KEY=...
-export LLM_MODE=openai
-export RAG_MODE=openai
-npm run dev
-```
+Use Node.js 22. Install backend dependencies from the repository root with `npm install`. Then install frontend dependencies in `web/` with `npm install` and run `npm run build` there. Return to the repository root and run `npm run dev`; the built application is available at `http://127.0.0.1:4173`.
 
-On Windows PowerShell, set the same environment variables with `$env:NAME="value"`.
+For frontend development, run the backend on port 4173 and run `npm run dev` inside `web/`; Vite serves the React app on port 5173 and proxies API requests to the backend.
+
+## Validation
+
+Backend validation uses `npm run typecheck`, `npm test`, `npm run build`, and `npm run eval`. Frontend validation uses `npm run typecheck` and `npm run build` inside `web/`.
 
 ## Scope
 
