@@ -1,3 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import { routeQuestion } from '../src/core/router.mjs';import { generateSellerAnswer } from '../src/core/generator.mjs';
-test('grounds answer in knowledge',async()=>{const question='How should we plan inventory?';const route=await routeQuestion(question);const answer=await generateSellerAnswer({question,sellerId:'sz-electronics',route});assert.ok(answer.evidence.length>=1);assert.ok(answer.cta);assert.ok(answer.guardrail);});
-test('supports Mandarin',async()=>{const question='进入德国需要哪些认证？';const route=await routeQuestion(question);const answer=await generateSellerAnswer({question,sellerId:'sz-electronics',route});assert.match(answer.headline,/阶段/);});

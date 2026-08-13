@@ -1,17 +1,23 @@
 {
   "name": "global-launch-studio",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "description": "AI-powered seller education and GTM orchestration platform for cross-border commerce.",
   "scripts": {
-    "demo": "node server.mjs",
-    "start": "node server.mjs",
-    "test": "node --test",
-    "eval": "node scripts/run-evaluation.mjs",
-    "check": "node scripts/check-syntax.mjs"
+    "dev": "tsx src/server.ts",
+    "demo": "tsx src/server.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck",
+    "test": "tsx --test tests/*.test.ts",
+    "eval": "tsx scripts/run-evaluation.ts"
   },
-  "engines": {
-    "node": ">=20"
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.8.3"
   }
 }
