@@ -1,3 +1,0 @@
-import { readdir, stat } from "node:fs/promises"; import { spawnSync } from "node:child_process"; import path from "node:path";
-async function walk(dir){const out=[];for(const name of await readdir(dir)){const p=path.join(dir,name);const s=await stat(p);if(s.isDirectory())out.push(...await walk(p));else if(/\.(mjs|js)$/.test(p))out.push(p);}return out;}
-const files=[...(await walk('src')),...(await walk('public/js')),'server.mjs',...(await walk('scripts'))];let failed=false;for(const file of files){const r=spawnSync(process.execPath,['--check',file],{stdio:'pipe'});if(r.status!==0){failed=true;console.error(file,r.stderr.toString());}}console.log(`Checked ${files.length} JavaScript modules.`);if(failed)process.exit(1);

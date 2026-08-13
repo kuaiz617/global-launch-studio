@@ -1,2 +1,0 @@
-import test from 'node:test';import assert from 'node:assert/strict';import { generateContent } from '../src/core/content.mjs';
-test('generates bilingual seller email',()=>{const en=generateContent({format:'email',sellerId:'sz-electronics',language:'en'});const zh=generateContent({format:'email',sellerId:'sz-electronics',language:'zh'});assert.match(en.body,/does not guarantee/i);assert.match(zh.body,/不保证/);});

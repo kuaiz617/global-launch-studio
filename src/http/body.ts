@@ -1,0 +1,2 @@
+import type { IncomingMessage } from 'node:http';
+export async function readJson<T extends Record<string,unknown>=Record<string,unknown>>(req:IncomingMessage):Promise<T>{const chunks:Buffer[]=[];let size=0;for await(const chunk of req){const buffer=Buffer.isBuffer(chunk)?chunk:Buffer.from(chunk);size+=buffer.length;if(size>1_000_000)throw new Error('Request body exceeds 1 MB.');chunks.push(buffer);}if(!chunks.length)return {} as T;return JSON.parse(Buffer.concat(chunks).toString('utf8')) as T;}
