@@ -1,10 +1,12 @@
 # Validation
 
-Validated locally with Node.js 22.16.0 (project requires Node.js 20+).
+The TypeScript migration was validated both before merge and again on `main` through GitHub Actions.
 
-- `npm test`: 16/16 tests passed.
-- `npm run check`: 34 JavaScript modules passed syntax checks.
-- `npm run eval`: 24/24 labeled seller questions routed to the expected agent and stage; grounding, prohibited-claim safety, CTA completeness, and structural quality checks all passed on this included test set.
-- HTTP smoke test: `/api/health`, `/api/bootstrap`, `/api/simulate`, and `/api/evaluation` returned successful responses.
+- `npm install`: completed successfully in GitHub Actions on Node.js 20.
+- `npm run typecheck`: strict TypeScript type checking passed.
+- `npm test`: 16 TypeScript core tests passed.
+- `npm run build`: production TypeScript compilation completed successfully and produces `dist/`.
+- `npm run eval`: all 24 included labeled seller questions routed to the expected agent/stage; the evaluation command completed successfully.
+- The merged TypeScript commit's GitHub Actions workflow concluded with `success`.
 
-These metrics describe only the repository's simulation/evaluation set and are not seller conversion or business-performance claims.
+The test/evaluation results describe only the repository's included simulation set. They are not seller conversion, revenue, eligibility, or production-performance claims.
