@@ -1,4 +1,4 @@
-# GlobalLaunch Studio v2
+# GlobalLaunch Studio 
 
 **AI-powered seller education and go-to-market orchestration for cross-border commerce.**
 
