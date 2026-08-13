@@ -9,9 +9,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm install
-      - run: npm run typecheck
-      - run: npm test
-      - run: npm run build
-      - run: npm run eval
+          node-version: 22
+      - name: Install backend dependencies
+        run: npm install
+      - name: Typecheck backend
+        run: npm run typecheck
+      - name: Test backend
+        run: npm test
+      - name: Build backend
+        run: npm run build
+      - name: Evaluate agent routing
+        run: npm run eval
+      - name: Install frontend dependencies
+        working-directory: web
+        run: npm install
+      - name: Typecheck React frontend
+        working-directory: web
+        run: npm run typecheck
+      - name: Build React frontend
+        working-directory: web
+        run: npm run build
