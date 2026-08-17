@@ -7,13 +7,16 @@ export function useSimulator() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
-  async function run(sellerId: string, question: string) {
+  async function run(sellerId: string, question: string): Promise<SimulationResponse | undefined> {
     setBusy(true);
     setError('');
     try {
-      setResult(await postJSON<SimulationResponse>('/api/simulate', { sellerId, question }));
+      const next = await postJSON<SimulationResponse>('/api/simulate', { sellerId, question });
+      setResult(next);
+      return next;
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
+      return undefined;
     } finally {
       setBusy(false);
     }
