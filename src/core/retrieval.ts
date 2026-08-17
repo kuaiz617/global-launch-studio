@@ -1,10 +1,9 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { createEmbedding, openAIEnabled } from '../providers/openai.js';
 import type { KnowledgeDocument, RetrievedDocument } from '../types/index.js';
 
-const knowledgeDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../knowledge');
+const knowledgeDir = path.resolve(process.cwd(), 'knowledge');
 let docs: KnowledgeDocument[] | undefined;
 const embeddingCache = new Map<string, number[]>();
 

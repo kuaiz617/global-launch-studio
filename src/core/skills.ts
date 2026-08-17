@@ -1,9 +1,8 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import type { AgentSkill, AgentSkillExample, JourneyStageId, SkillStatus } from '../types/index.js';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../config/agents');
+const root = path.resolve(process.cwd(), 'config/agents');
 let cache: AgentSkill[] | undefined;
 
 function stringArray(value: unknown, field: string): string[] {
