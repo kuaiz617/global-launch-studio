@@ -10,13 +10,7 @@ import { InsightsPage } from './pages/InsightsPage';
 import { JourneyPage } from './pages/JourneyPage';
 import { MessagingPage } from './pages/MessagingPage';
 import { SkillsPage } from './pages/SkillsPage';
-import type { BootstrapData, EvaluationResponse, PageId } from './types';
-
-export interface SimulatorPreset {
-  sellerId: string;
-  question: string;
-  label: string;
-}
+import type { BootstrapData, EvaluationResponse, PageId, SimulatorPreset } from './types';
 
 export default function App() {
   const [page, setPage] = useState<PageId>('dashboard');
