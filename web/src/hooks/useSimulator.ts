@@ -5,10 +5,19 @@ import type { SimulationResponse } from '../types';
 export function useSimulator() {
   const [result, setResult] = useState<SimulationResponse>();
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState('');
+
   async function run(sellerId: string, question: string) {
     setBusy(true);
-    try { setResult(await postJSON<SimulationResponse>('/api/simulate', { sellerId, question })); }
-    finally { setBusy(false); }
+    setError('');
+    try {
+      setResult(await postJSON<SimulationResponse>('/api/simulate', { sellerId, question }));
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setBusy(false);
+    }
   }
-  return { result, busy, run };
+
+  return { result, busy, error, run };
 }
