@@ -19,6 +19,7 @@ export function SimulatorForm({ sellers }: { sellers: SellerProfile[] }) {
         <label htmlFor="seller-question"><strong>Seller question</strong></label>
         <textarea id="seller-question" rows={7} value={question} onChange={event => setQuestion(event.target.value)} />
         <button type="button" disabled={simulation.busy || !sellerId || !question.trim()} onClick={() => simulation.run(sellerId, question)}>{simulation.busy ? 'Running agent journey…' : 'Run agent journey'}</button>
+        {simulation.error && <div className="error-box">{simulation.error}</div>}
       </section>
       <section className="panel"><h2>Agent result</h2><SimulationPanel result={simulation.result} /></section>
     </div>
