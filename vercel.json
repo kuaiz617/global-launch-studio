@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:web",
+  "outputDirectory": "public",
+  "functions": {
+    "api/[...path].ts": {
+      "includeFiles": "{knowledge/**,config/agents/**}"
+    }
+  }
+}
