@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import { MetricCard } from '../components/MetricCard';
 import type { EvaluationResponse } from '../types';
 
@@ -9,12 +9,12 @@ export function InsightsPage({ evaluation }: { evaluation?: EvaluationResponse }
 
   const m = evaluation.summary;
   const agents = ['All', ...new Set(evaluation.rows.map(row => row.case.expectedAgent))];
-  const agentStats = useMemo(() => agents.filter(agent => agent !== 'All').map(agent => {
+  const agentStats = agents.filter(agent => agent !== 'All').map(agent => {
     const rows = evaluation.rows.filter(row => row.case.expectedAgent === agent);
     const correct = rows.filter(row => row.routeCorrect).length;
     const avgQuality = rows.length ? Math.round(rows.reduce((sum, row) => sum + row.quality.score, 0) / rows.length) : 0;
     return { agent, cases: rows.length, accuracy: rows.length ? Math.round((correct / rows.length) * 100) : 0, avgQuality };
-  }), [evaluation, agents]);
+  });
 
   const filteredRows = evaluation.rows.filter(row => {
     const matchesAgent = selectedAgent === 'All' || row.case.expectedAgent === selectedAgent;
