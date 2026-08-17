@@ -1,6 +1,5 @@
 import { MetricCard } from '../components/MetricCard';
-import type { SimulatorPreset } from '../App';
-import type { BootstrapData, EvaluationResponse, PageId } from '../types';
+import type { BootstrapData, EvaluationResponse, PageId, SimulatorPreset } from '../types';
 
 const demoScenarios: SimulatorPreset[] = [
   {
