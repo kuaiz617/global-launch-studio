@@ -7,13 +7,16 @@ export function useContentGenerator() {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
 
-  async function generate(sellerId: string, format: ContentFormat, language: Language) {
+  async function generate(sellerId: string, format: ContentFormat, language: Language): Promise<GeneratedContent | undefined> {
     setBusy(true);
     setError('');
     try {
-      setResult(await postJSON<GeneratedContent>('/api/content', { sellerId, format, language }));
+      const next = await postJSON<GeneratedContent>('/api/content', { sellerId, format, language });
+      setResult(next);
+      return next;
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
+      return undefined;
     } finally {
       setBusy(false);
     }

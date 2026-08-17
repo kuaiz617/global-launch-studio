@@ -3,6 +3,12 @@ export type Language = 'en' | 'zh';
 export type ContentFormat = 'email' | 'faq' | 'checklist';
 export type RetrievalMode = 'lexical' | 'embedding';
 
+export interface SimulatorPreset {
+  sellerId: string;
+  question: string;
+  label: string;
+}
+
 export interface JourneyStage {
   id: string;
   order: number;
